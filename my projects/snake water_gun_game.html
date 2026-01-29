@@ -1,0 +1,143 @@
+<html>
+    <head>
+        <style>
+            h1{
+                color: black;
+            }
+            body{
+                display: grid;
+                place-items: center;
+                color: white;
+                font-size: 25px;
+                font-style: bold;
+            }
+            h2{
+                color: white;
+            }
+            .container{
+                height: 430px;
+                width: 700px;
+                background-color:darkmagenta;
+                border: 4px solid yellow;
+                text-align: center;
+                border-radius: 20px;
+            }
+            #result{
+                height: 100px;
+                width: 500px;
+                background-color:darkmagenta;
+                text-align: center;
+                border: 4px solid yellow;
+                border-radius: 15px;
+                color: white;
+                font-size: 30px;
+                font-style: bold;
+                display: grid;
+                place-items: center;
+            }
+            #show{
+                font-size: 25px;
+                font-style: bold;
+                color: white;
+                position: absolute;
+                margin-left: 330px;
+            }
+            button{
+                padding: 12px 20px;
+                font-size: 10px;
+                border-radius: 20px;
+                border: 4px solid yellow;
+                background: aqua;
+                color: #000000;
+                cursor: pointer;
+                font-style: bolder;
+                font-weight: 500px;
+                font-size: 20px;
+            }
+            .radio{
+                padding: 0;
+                cursor: pointer;
+                size: 20px;
+            }
+            input[type=radio]{
+                width: 50px;
+                height: 20px;
+                display: inline-block;
+            }
+        </style>
+        <title>Snake water & gun game</title>
+    </head>
+    <body>
+        <h1>Snake Water & Gun Game</h1>
+        <div class="container">
+        <h2>Computers choise :</h2>
+        <div id="show"></div><br><br>
+        <h2>Your choise :</h2>
+            <input type="radio" value="snake 🐍" id="r1" name="game" class="radio">Snake 🐍
+            <input type="radio" value="water 🌊" id="r2" name="game" class="radio">Water 🌊
+            <input type="radio" value="gun 🔫" id="r3" name="game" class="radio">Gun 🔫<br><br>
+        <button onclick="test()">Play</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="call()">Play again!</button>
+    </div>
+    <div id="result"></div>
+    </body>
+
+    <script>
+    function test(){
+        //creating a random number using math.random function
+        let a = parseInt(Math.random()*(3));
+        let comp;
+            if(a==1){
+                comp="snake 🐍";
+            }
+            else if(a==2){
+                comp="water 🌊";
+            }
+            else{
+                comp="gun 🔫";
+            }
+        document.getElementById('show').innerHTML=comp;
+        let choise;
+            if(document.getElementById('r1').checked){
+                choise = document.getElementById('r1').value;
+            }
+            else if(document.getElementById('r2').checked){
+                choise = document.getElementById('r2').value;
+            }
+            else if(document.getElementById('r3').checked){
+                choise = document.getElementById('r3').value;
+            }
+            //conditions for the game
+            if(comp==choise){
+                document.getElementById('result').innerHTML="Match draw ✖️";   
+            }
+            else if(comp=='snake 🐍'){
+                if(choise=='water 🌊'){
+                    document.getElementById('result').innerHTML="you lose! 😭";
+                }
+                else if(choise=='gun 🔫'){
+                    document.getElementById('result').innerHTML="you win! 🏆";
+                }
+            }
+            else if(comp=='water 🌊'){
+                if(choise=='snake 🐍'){
+                    document.getElementById('result').innerHTML="you win! 🏆";  
+                }
+                else if(choise=='gun 🔫'){
+                    document.getElementById('result').innerHTML="you lose! 😭"; 
+                }
+            }
+            else{
+                if(choise=='water 🌊'){
+                    document.getElementById('result').innerHTML="you win! 🏆"; 
+                }
+                else if(choise=='snake 🐍'){
+                    document.getElementById('result').innerHTML="you lose! 😭";
+                }
+            }
+            };
+        function call()
+        {
+            location.href="http://localhost/website/my%20projects/snake%20water_gun_game.html";
+        }
+    </script>
+</html>

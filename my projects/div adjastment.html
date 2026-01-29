@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        #box{
+            height: 50px;
+            width: 250px;
+            background-color: cyan;
+            border: 1px solid #000000;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            margin-left: 100px;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Manipulation on div</h1>
+        <input type="checkbox" id="checkbox" oninput="test()" checked>
+        <b id="content">visible</b><br><br>
+        <input type="color" id="clr" oninput="changecolor()">
+        <input type="range" id="left" min="0" value="50" max="100" value="0" oninput="left()"> 
+        <input type="range" id="right" min="0" value="50" max="100" value="0" oninput="right()"> 
+    <div id="box">
+        Div
+    </div>
+    
+    <script>
+            
+        function test()
+        {
+            let box=document.getElementById("box");
+            let checkbox=document.getElementById("checkbox");
+            let content=document.getElementById("content");
+            let color=document.getElementById("clr").value;
+            if(checkbox.checked)
+            {
+                box.style.visibility="visible";
+                content.innerHTML="visible";
+            }
+            else
+            {
+                box.style.visibility="hidden"
+                content.innerHTML="un-visible";
+            }
+        }
+        function changecolor()
+        {
+            let box=document.getElementById("box");
+            let color=document.getElementById("clr").value;
+            box.style.backgroundColor= color;
+        }
+        /*let left=document.getElementById("left");
+        let box=document.getElementById("box");
+        left.addEventListener('input',function(){
+            const marginleftvalue=this.value+'%';
+            box.style.marginLeft=marginleftvalue;
+        });*/
+        function left()
+        {
+            let box=document.getElementById("box");
+            let left=document.getElementById("left");
+            
+            box.style.marginLeft=left.value+'%';
+        }
+        function right()
+        {
+            let box=document.getElementById("box");
+            let right=document.getElementById("right");
+            
+            box.style.marginTop=right.value+'%';
+        }
+
+    </script>
+</body>
+</html>

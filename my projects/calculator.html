@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        
+        h1{
+            margin-top: 90px;
+            font-size: 80px;
+            margin-left: 90px;
+            color: rgb(255, 119, 0);
+        }
+        .container{ 
+            margin-left: 120px;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        #row1,#row2,#row3,#row4,#row5{
+            margin: 10px;
+            display: flex;
+            flex-direction: row;
+            width: 400px;
+            gap: 10px;
+        }
+        .btn
+        {
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            padding: 10px;
+            height: 40px;
+            width: 40px;
+            border-radius: 20px;
+            border: 1px solid black;
+            cursor: pointer;
+            background-color:#001928;
+            color: white;
+            font-style: bolder;
+            font-weight: 500px;
+        }  
+        .btn:active{
+            color: black;
+            background-color:white;
+            border: 1px solid black;
+        }
+       
+        input[type="text"]
+        {
+            font-size: 30px;
+            text-align: right;
+            margin-top: 10px;
+            margin-left: 10px;
+            height: 70px;
+            width: 270px;
+            border-radius: 10px
+        }
+        #ans{
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            padding: 10px;
+            height: 40px;
+            width: 40px;
+            border-radius: 20px;
+            border: 1px solid white;
+            cursor: pointer;
+            background-color:#ff10c7;
+            color: white;
+            font-style: bolder;
+            font-weight: 500px;
+        }
+        #del2,#np5,#del,#np4,#np3,#np2,#np1{
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            padding: 10px;
+            height: 40px;
+            width: 40px;
+            border-radius: 20px;
+            border: 1px solid black;
+            cursor: pointer;
+            background-color:#001928;
+            color: rgb(51, 255, 0);
+            font-style: bolder;
+            font-weight: 1000px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div class="container">
+        <input type="text" name="calculator" id="calculator">
+        <div id="row1">
+            <div id="del2" class="btn">AC</div>
+            <div id="np5" class="btn">%</div>
+            <div id="del" class="btn">DEL</div>
+            <div id="np4" class="btn">/</div>
+        </div>
+        <div id="row2">
+            <div id="n7" class="btn">7</div>
+            <div id="n8" class="btn">8</div>
+            <div id="n9" class="btn">9</div>
+            <div id="np3" class="btn">*</div>
+        </div>
+        <div id="row3">
+            <div id="n4" class="btn">4</div>
+            <div id="n5" class="btn">5</div>
+            <div id="n6" class="btn">6</div>
+            <div id="np2" class="btn">-</div>
+        </div>
+        <div id="row4">
+            <div id="n1" class="btn">1</div>
+            <div id="n2" class="btn">2</div>
+            <div id="n3" class="btn">3</div>
+            <div id="np1" class="btn">+</div>
+        </div>
+        <div id="row5">
+            <div id="n00" class="btn">00</div>
+            <div id="n0" class="btn">0</div>
+            <div id="np6" class="btn">.</div>
+            <div id="ans" class="btn">=</div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("n1").addEventListener('click',function(){
+            calculator.value+='1';
+        });
+        document.getElementById("n2").addEventListener('click',function(){
+            calculator.value+='2';
+        });
+        document.getElementById("n3").addEventListener('click',function(){
+            calculator.value+='3';
+        });
+        document.getElementById("n4").addEventListener('click',function(){
+            calculator.value+='4';
+        });
+        document.getElementById("n5").addEventListener('click',function(){
+            calculator.value+='5';
+        });
+        document.getElementById("n6").addEventListener('click',function(){
+            calculator.value+='6';
+        });
+        document.getElementById("n7").addEventListener('click',function(){
+            calculator.value+='7';
+        });
+        document.getElementById("n8").addEventListener('click',function(){
+            calculator.value+='8';
+        });
+        document.getElementById("n9").addEventListener('click',function(){
+            calculator.value+='9';
+        });
+        document.getElementById("n0").addEventListener('click',function(){
+            calculator.value+='0';
+        });
+        document.getElementById("n00").addEventListener('click',function(){
+            calculator.value+='0';
+            calculator.value+='0';
+        });
+        document.getElementById("np1").addEventListener('click',function(){
+            calculator.value+='+';
+        });
+        document.getElementById("np2").addEventListener('click',function(){
+            calculator.value+='-';
+        });
+        document.getElementById("np3").addEventListener('click',function(){
+            calculator.value+='*';
+        });
+        document.getElementById("np4").addEventListener('click',function(){
+            calculator.value+='/';
+        });
+        document.getElementById("np5").addEventListener('click',function(){
+            calculator.value+='%';
+        });
+        document.getElementById("np6").addEventListener('click',function(){
+            calculator.value+='.';
+        });
+        document.getElementById("del").addEventListener('click',function(){
+            calculator.value=calculator.value.slice(0,-1);
+        });
+        document.getElementById("del2").addEventListener('click',function(){
+            calculator.value=' ';
+        });
+
+        document.getElementById("ans").addEventListener('click',function(){
+            calculator.value=eval(calculator.value);
+        });
+    </script>
+</body>
+</html>

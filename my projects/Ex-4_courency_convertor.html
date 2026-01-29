@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: grid;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            margin-top: 130px;
+            border: 3px solid white;
+            height: 350px;
+            width: 500px;
+            background-color: darkgrey;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        }
+        h1{
+            margin-left: 110px;
+            margin-bottom: -10px;
+            color: white;
+            text-shadow: 0 0 5px #03e9f4,0 0 15px #03e9f4,
+            0 0 25px #03e9f4,0 0 100px #03e9f4;
+        }
+        h3{
+            color: black;
+            margin-bottom: 5px;
+        }
+        #form{
+            height: 100px;
+            width: 300px;
+            margin-left: 110px;
+            margin-top: 20px;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        #to{
+            size: 100px;
+            margin-left: 90px;
+            color: cyan;
+        }
+        button{
+            margin-left: 8PX;
+            margin-top: 10px;
+            padding: 8px 20PX;
+            border-radius: 20px;
+            color: black;
+            cursor: pointer; 
+            font-size: 12px;
+            text-decoration: solid;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+            gap: 2PX;
+        }
+        button:hover{
+            background: rgb(0, 192, 226);
+            transition: 0.5s;
+        }
+        button:hover{
+            color: white;
+        }
+        #show{
+            margin-top: 20px;
+            color: white;
+            height: 20px;
+            width: 200px;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        input{
+            border-radius: 10px;
+            margin-bottom: 5px;
+            padding: 3px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        input:hover{
+            border-color: coral;
+            transition: 0.5s;
+        }
+        select{
+            padding: 5px;
+            border-radius: 10px;
+            size: 20px;
+            border: 2px solid black;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Currency Converter</h1>
+        <div id="form">
+            <h3>Enter Ammount</h3>
+            <input type="number" id="ammount" onclick="mouse('mouse.mp3')" onkeypress="mouse('type.mp3')" value="number">
+            <select id="cur1" onclick="mouse('mouse.mp3')">
+                <option value="INR">INR ₹</option>
+                <option value="USD">USD $</option>
+                <option value="BTC">BTC ₿</option>
+                <option value="EURO">EURO €</option>
+                <option value="BDT">BANGLADESHI TAKA ৳</option>
+                <option value="AUD">Australian Doller(AUD) $</option>
+                <option value="PKR">Pakistani Rupees Rs</option>
+            </select>
+                <span id="to">⇅</span>
+            <select id="cur2" onclick="mouse('mouse.mp3')">
+                <option value="USD">USD $</option>
+                <option value="INR">INR &nbsp;₹</option>
+                <option value="BTC">BTC ₿</option>
+                <option value="EURO">EURO €</option>
+                <option value="BDT">BANGLADESHI TAKA ৳</option>
+                <option value="AUD">Australian Doller(AUD) $</option>
+                <option value="PKR">Pakistani Rupees Rs</option>
+            </select>
+            <div>
+                <button onclick="test('audio.mp3')">Convert</button>
+                <button onclick="call()">reset</button>
+                <div id="show"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    function test(url){
+        new Audio(url).play();
+        let ammount = parseFloat(document.getElementById("ammount").value);
+        let cur1 = document.getElementById("cur1").value;
+        let cur2 = document.getElementById("cur2").value;
+        let show = document.getElementById("show");
+
+        if(document.getElementById("ammount").value=="")
+        {
+            alert("please enter the ammount");
+        }
+        else{
+            if(cur1 == cur2){
+                alert("please select the next one");
+            }
+            else if(cur1 == 'INR' && cur2 == 'USD')
+            {
+                let money = parseFloat(ammount * 0.0120);
+                show.innerHTML = "$  "+parseFloat(money);
+            }
+            else if(cur1 == 'INR' && cur2 == 'BTC')
+            {
+                let money = parseFloat(ammount * 0.00);
+                show.innerHTML = "₿ "+parseFloat(money);
+            }
+            else if(cur1 == 'INR' && cur2 == 'EURO')
+            {
+                let money = parseFloat(ammount * 0.0112);
+                show.innerHTML = "€ "+parseFloat(money);
+            }
+            else if(cur1 == 'INR' && cur2 == 'BDT')
+            {
+                let money = parseFloat(ammount * 1.4084);
+                show.innerHTML = "৳ "+parseFloat(money);
+            }
+            else if(cur1 == 'INR' && cur2 == 'AUD')
+            {
+                let money = parseFloat(ammount * 0.0180);
+                show.innerHTML = "$ "+parseFloat(money);
+            }
+            else if(cur1 == 'INR' && cur2 == 'PKR')
+            {
+                let money = parseFloat(ammount * 3.3365);
+                show.innerHTML = "Rs "+parseFloat(money);
+            }
+            else if(cur1=='USD' && cur2=='INR')
+            {
+                let money = parseFloat(ammount * 83.3644);
+                show.innerHTML = "₹ "+parseFloat(money);
+            }
+            else if(cur1 == 'USD' && cur2 == 'BTC')
+            {
+                let money = parseFloat(ammount * 0.000016);
+                show.innerHTML = "₿ "+parseFloat(money);
+            }
+            else if(cur1 == 'USD' && cur2 == 'EURO')
+            {
+                let money = parseFloat(ammount * 0.9320);
+                show.innerHTML = "€ "+parseFloat(money);
+            }
+            else if(cur1 == 'USD' && cur2 == 'BDT')
+            {
+                let money = parseFloat(ammount * 117.65);
+                show.innerHTML = "৳ "+parseFloat(money);
+            }
+            else if(cur1 == 'USD' && cur2 == 'AUD')
+            {
+                let money = parseFloat(ammount * 1.5055);
+                show.innerHTML = "$ "+parseFloat(money);
+            }
+            else if(cur1 == 'USD' && cur2 == 'PKR')
+            {
+                let money = parseFloat(ammount * 278.6480);
+                show.innerHTML = "Rs "+parseFloat(money);
+            }
+            else if(cur1 == 'BTC' && cur2 == 'USD')
+            {
+                let money = parseFloat(ammount * 61563.08);
+                show.innerHTML = "$  "+parseFloat(money);
+            }
+            else if(cur1 == 'BTC' && cur2 == 'INR')
+            {
+                let money = parseFloat(ammount * 5278280.33);
+                show.innerHTML = "₹ "+parseFloat(money);
+            }
+            else if(cur1 == 'BTC' && cur2 == 'EURO')
+            {
+                let money = parseFloat(ammount * 58749.81);
+                show.innerHTML = "€ "+parseFloat(money);
+            }
+            else if(cur1 == 'BTC' && cur2 == 'BDT')
+            {
+                let money = parseFloat(ammount * 7403239.25);
+                show.innerHTML = "৳ "+parseFloat(money);
+            }
+            else if(cur1 == 'BTC' && cur2 == 'AUD')
+            {
+                let money = parseFloat(ammount * 94812.66);
+                show.innerHTML = "$ "+parseFloat(money);
+            }
+            else if(cur1 == 'BTC' && cur2 == 'PKR')
+            {
+                let money = parseFloat(ammount * 17540055.65);
+                show.innerHTML = "Rs "+parseFloat(money);
+            }
+            else if(cur1 == 'EURO' && cur2 == 'USD')
+            {
+                let money = parseFloat(ammount * 1.0729);
+                show.innerHTML = "$  "+parseFloat(money);
+            }
+            else if(cur1 == 'EURO' && cur2 == 'INR')
+            {
+                let money = parseFloat(ammount * 89.6275);
+                show.innerHTML = "₹ "+parseFloat(money);
+            }
+            else if(cur1 == 'EURO' && cur2 == 'BTC')
+            {
+                let money = parseFloat(ammount * 0.000017);
+                show.innerHTML = "₿ "+parseFloat(money);
+            }
+            else if(cur1 == 'EURO' && cur2 == 'BDT')
+            {
+                let money = parseFloat(ammount * 126.2211);
+                show.innerHTML = "৳ "+parseFloat(money);
+            }
+            else if(cur1 == 'EURO' && cur2 == 'AUD')
+            {
+                let money = parseFloat(ammount * 1.6151);
+                show.innerHTML = "$ "+parseFloat(money);
+            }
+            else if(cur1 == 'EURO' && cur2 == 'PKR')
+            {
+                let money = parseFloat(ammount * 299.0255);
+                show.innerHTML = "Rs "+parseFloat(money);
+            }
+            else if(cur1 == 'BDT' && cur2 == 'USD')
+            {
+                let money = parseFloat(ammount * 0.0085);
+                show.innerHTML = "$  "+parseFloat(money);
+            }
+            else if(cur1 == 'BDT' && cur2 == 'INR')
+            {
+                let money = parseFloat(ammount * 0.7099);
+                show.innerHTML = "₹ "+parseFloat(money);
+            }
+            else if(cur1 == 'BDT' && cur2 == 'BTC')
+            {
+                let money = parseFloat(ammount * 0.00);
+                show.innerHTML = "₿ "+parseFloat(money);
+            }
+            else if(cur1 == 'BDT' && cur2 == 'EURO')
+            {
+                let money = parseFloat(ammount * 0.0079);
+                show.innerHTML = "€ "+parseFloat(money);
+            }
+            else if(cur1 == 'BDT' && cur2 == 'AUD')
+            {
+                let money = parseFloat(ammount * 0.0128);
+                show.innerHTML = "$ "+parseFloat(money);
+            }
+            else if(cur1 == 'BDT' && cur2 == 'PKR')
+            {
+                let money = parseFloat(ammount * 2.3684);
+                show.innerHTML = "Rs "+parseFloat(money);
+            }
+            else if(cur1 == 'AUD' && cur2 == 'INR')
+            {
+                let money = parseFloat(ammount * 55.4691);
+                show.innerHTML = "₹ "+parseFloat(money);
+            }
+            else if(cur1 == 'AUD' && cur2 == 'USD')
+            {
+                let money = parseFloat(ammount * 0.6642);
+                show.innerHTML = "$  "+parseFloat(money);
+            }
+            else if(cur1 == 'AUD' && cur2 == 'BTC')
+            {
+                let money = parseFloat(ammount * 0.000011);
+                show.innerHTML = "₿ "+parseFloat(money);
+            }
+            else if(cur1 == 'AUD' && cur2 == 'EURO')
+            {
+                let money = parseFloat(ammount * 0.62);
+                show.innerHTML = "€ "+parseFloat(money);
+            }
+            else if(cur1 == 'AUD' && cur2 == 'BDT')
+            {
+                let money = parseFloat(ammount * 78.1457);
+                show.innerHTML = "৳ "+parseFloat(money);
+            }
+            else if(cur1 == 'AUD' && cur2 == 'PKR')
+            {
+                let money = parseFloat(ammount * 185.1421);
+                show.innerHTML = "Rs "+parseFloat(money);
+            }
+            else if(cur1 == 'PKR' && cur2 == 'INR')
+            {
+                let money = parseFloat(ammount * 0.2997);
+                show.innerHTML = "₹ "+parseFloat(money);
+            }
+            else if(cur1 == 'PKR' && cur2 == 'USD')
+            {
+                let money = parseFloat(ammount * 0.0036);
+                show.innerHTML = "$  "+parseFloat(money);
+            }
+            else if(cur1 == 'PKR' && cur2 == 'BTC')
+            {
+                let money = parseFloat(ammount * 0.0000);
+                show.innerHTML = "₿ "+parseFloat(money);
+            }
+            else if(cur1 == 'PKR' && cur2 == 'EURO')
+            {
+                let money = parseFloat(ammount * 0.0033);
+                show.innerHTML = "€ "+parseFloat(money);
+            }
+            else if(cur1 == 'PKR' && cur2 == 'BDT')
+            {
+                let money = parseFloat(ammount * 0.4222);
+                show.innerHTML = "৳ "+parseFloat(money);
+            }
+            else if(cur1 == 'PKR' && cur2 == 'AUD')
+            {
+                let money = parseFloat(ammount * 0.0054);
+                show.innerHTML = "$ "+parseFloat(money);
+            }
+        }
+    };
+    function call(){
+        location.href="file:///C:/Users/jniku/OneDrive/Desktop/javascript%20by%20codee%20with%20harry/Exercises/Ex-4_courency_convertor.html";
+    }
+    function mouse(url1){
+        new Audio(url1).play();
+    }
+</script>
+</html>

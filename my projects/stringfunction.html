@@ -1,0 +1,323 @@
+<html>
+    <style>
+        body{
+            padding: 0;
+            display: grid;
+            place-items: center;
+        }
+        #container{
+            height: 300px;
+            width: 1490px;
+            background-color: darkturquoise;
+            text-align: center;
+            border: 6px solid orange;
+            border-radius: 15px;
+            margin: 0px 20px 0px 20px;
+            padding: 0;
+            display: grid;
+            place-items: center;
+            font-family: 'Franklin Gothic Medium', 'Arial bold';
+        }
+        input{
+            padding: 5px;
+            background-color: fuchsia;
+            text-size-adjust: 10px;
+            color: white;
+            border: 4px solid yellow;
+            border-radius: 10px;
+            font-size: 20px;
+            font-style: bold;
+        }
+        select{
+            padding: 5px;
+            background-color: magenta;
+            color: white;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            border: 4px solid yellow;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        select:hover{
+            cursor: pointer;
+        }
+        button{
+            width: 80px;
+            padding: 7px;
+            border-radius: 5px;
+            background-color:magenta;
+            color: white;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            border: 4px solid yellow;
+            border-radius: 15px;
+            font-weight: bold;
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: blueviolet;
+        }
+        #butt{
+            width: 120px;
+            border-radius: 5px;
+            background-color:magenta;
+            color: white;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            border: 4px solid yellow;
+            border-radius: 15px;
+            font-weight: bold;
+        }
+        #jk{
+            display: grid;
+            place-items: center;
+            height: 20px;
+            width: 500px;
+            font-family:Georgia,Times, serif;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #str1{
+            height: 20px;
+            width: 500px;
+            display: grid;
+            place-items: center;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+        #str2{
+            height: 20px;
+            width: 500px;
+            display: grid;
+            place-items: center;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+    </style>
+    <body>
+        <h1>String functions tutorial</h1>
+        <div id="container">
+        <div>
+            Enter the 1st string:
+        <input type="text" id="etr">
+            Enter the 2nd string/replace:
+        <input type="text" id="etr1">
+        </div>
+        <div>
+            Enter the index/charAt/charCodeAt/slice:
+        <input type="number" id="index">
+            This second input box is only for slice method
+        <input type="number" id="index1">
+        </div>
+        <div>
+            Enter the single character/indexOf/lastIndexOf:
+        <input type="text" id="char" maxlength="1">
+            Choose String function:
+        <select id="select" required>
+            <option value="length">length</option>
+            <option value="charAt()">charAt()</option>
+            <option value="charCodeAt()">charCodeAt()</option>
+            <option value="concat()">concat()</option>
+            <option value="replace()">replace()</option>
+            <option value="toLowerCase()">toLowerCase()</option>
+            <option value="toUpperCase()">toUpperCase()</option>
+            <option value="indexOf()">indexOf()</option>
+            <option value="lastIndexOf()">lastIndexOf()</option>
+            <option value="slice()">slice()</option>
+        </select>
+        <button onclick="test()">cilck</button>
+        <button onclick="test4()" id="butt">information about the string function</button>
+    </div>
+    </div>
+    <div>
+        <h1>The string you entered:</h1>
+        <div id="str1"></div><div id="str2"></div>
+        <h1>Output:</h1>
+        <div id="jk"></div>
+        <h1>information about this string function:</h1>
+        <div id="jk2"></div>
+    </div>
+    <script>
+        function test()
+        {
+            var text=document.getElementById("etr").value;
+            var text1=document.getElementById("etr1").value;
+            var index=parseInt(document.getElementById("index").value);
+            var index1=parseInt(document.getElementById("index1").value);
+            var char=document.getElementById("char").value;
+            var select=document.getElementById("select").value;
+            if(select=='length')
+            {
+                var a=text.length;
+                document.getElementById("jk").innerHTML=a;
+            }
+            else if(select=='charAt()')
+            {
+                if(isNaN(index))
+                {
+                    alert("Enter the specified index");
+                }
+                else
+                {
+                    var a=text.charAt(index);
+                    document.getElementById("jk").innerHTML=a;
+                }
+            }
+            else if(select=='charCodeAt()')
+            {
+                if(isNaN(index))
+                {
+                    alert("Enter the specified index");
+                }
+                else
+                {
+                    var a=text.charCodeAt(index);
+                    document.getElementById("jk").innerHTML=a;
+                }
+            }
+            else if(select=='concat()')
+            {
+                if(text1=='')
+                {
+                    alert("Please enter the second string");
+                }  
+                else if(text1==text1)
+                {
+                    var a=text.concat(text1);
+                    document.getElementById("jk").innerHTML=a;
+                }
+            }
+            else if(select=='replace()')
+            {
+                if(text1=='')
+                {
+                    alert("Please enter the replace string");
+                }  
+                else if(text1==text1)
+                {
+                    var a=text.replace(text,text1);
+                    document.getElementById("jk").innerHTML=a;
+                }
+            }
+            else if(select=='toLowerCase()')
+            {
+                var a=text.toLowerCase();
+                document.getElementById("jk").innerHTML=a;
+            }
+            else if(select=='toUpperCase()')
+            {
+                var a=text.toUpperCase();
+                document.getElementById("jk").innerHTML=a;
+            }
+            else if(select=='indexOf()')
+            {
+                if(char=='')
+                {
+                    alert("Please enter the character value whose position you want to find");
+                }  
+                else if(char==char)
+                {
+                    var a=text.indexOf(char);
+                    document.getElementById("jk").innerHTML=a;
+                }
+            }
+            else if(select=='lastIndexOf()')
+            {
+                if(char=='')
+                {
+                    alert("Please enter the character value whose position you want to find");
+                }  
+                else if(char==char)
+                {
+                    var a=text.lastIndexOf(char);
+                    document.getElementById("jk").innerHTML=a;
+                }
+            }
+            else if(select=='slice()')
+            {
+                if(isNaN(index))
+                {
+                    alert("please enter the 1st index.");
+                }
+                else if(isNaN(index1))
+                {
+                    alert("please enter the 2nd indexe.");
+                }
+                var a=text.slice(index,index1);
+                document.getElementById("jk").innerHTML=a;
+            }
+        };
+        function test2()
+        {
+            var text=document.getElementById("etr").value;
+            document.getElementById("str1").innerHTML=text;
+        };
+        function test3()
+        {
+            var text=document.getElementById("etr").value;
+            var text1=document.getElementById("etr1").value;
+
+            document.getElementById("str2").innerHTML=text1;
+        };
+
+        document.getElementById("etr").addEventListener('input',test2);
+        document.getElementById("etr1").addEventListener('input',test3);
+        
+        function test4(){
+            var text=document.getElementById("etr").value;
+            var text1=document.getElementById("etr1").value;
+            var index=parseInt(document.getElementById("index").value);
+            var index1=parseInt(document.getElementById("index1").value);
+            var char=document.getElementById("char").value;
+            var select=document.getElementById("select").value;
+            if(select=='length')
+            {
+                var a="1.This method is used to find the length of the specified string.";
+                document.getElementById("jk2").innerHTML=a;
+            }
+            else if(select=='charAt()')
+            {
+                var a="1.This method is used to find out a char value present at the specified index in a string.<br/>2.The index number starts from 0 and goes to n-1,where n is the length of the string.<br/>3.The index can't be a negative,greater than or equal to the length of the string.<br/>4.syntax:string.charAt(index);<br/>5.Return value-Returns the character from the specified index";
+                document.getElementById("jk2").innerHTML=a;
+            }
+            else if(select=='charCodeAt()')
+            {
+                var a="1.This method is used to find out the unicode value of a characterat the specific index in a string.<br/>2.The index number starts from 0 and goes to n-1,where n is the length of the string.<br/>3.It returns NaN if the given number is either a negative number or it is greater than or equal to the length of the string.<br/>4.syntax:string.charCodeAt(index);<br/>5.It returns the unicode character";
+                document.getElementById("jk2").innerHTML=a;
+            }
+            else if(select=='concat()')
+            { 
+                var a="1.This method combines two or more strins and returns a new string<br/>2.This method doesn't make any changes in the original string.<br/>3.syntax-string.concat(str1,str2,...,strn)<br/>4.Parameter-str1,str2,...,strn - It represent the string original string.<br/>5.Return-Combination of strings.";
+                document.getElementById("jk2").innerHTML=a;
+            }
+            else if(select=='replace()')
+            {
+                var a="1.This method is used to replace a part of a given string with a new substring.<br/>2.This method searches for specified regular expression in a given string and then replace it if the match occurs.<br/>3.We can global search modifier with replace() method to replace all the match elements otherwise the method replace only first match.<br/>5.javascript also provides ignore flag to make the method case-insensitive.";
+                document.getElementById("jk2").innerHTML=a;
+            }
+            else if(select=='toLowerCase()')
+            {
+                var a="1.This method is used to convert the string into lowercase letter.<br/>2.This method doesn't make any change in the original string.<br/>3.syntax-string.toLowerCase();<br/>4.Return-String in lowercase letter.";
+                document.getElementById("jk2").innerHTML=a;
+            }
+            else if(select=='toUpperCase()')
+            {
+                var a="1.This method is used to convert the string into uppercase letter.<br/>2.This method doesn't make any change in the original string.<br/>3.syntax-string.toUpperCase();<br/>4.Return-String in uppercase letter.";
+                document.getElementById("jk2").innerHTML=a;
+            }
+            else if(select=='indexOf()')
+            {
+                var a="1.This method is used to search the position of a particular character or string in a sequence of given char values.<br/>2.This method returns the index within the calling String object of the first occurence of the specified value.<br/>3.The index position of first character in a string always starts with 0(zero).<br/>4.If an element is not present in a string,it returns -1.<br/>5.This method is case-sensitive.";
+                document.getElementById("jk2").innerHTML=a;            
+            }
+            else if(select=='lastIndexOf()')
+            {
+                var a="1.This method is used to search the position of a particular character or string in a sequence of given char values.<br/>2.This method returns the index within the calling String object from the right side ina string in it's first occurence.<br/>3.The index position of first character in a string always starts with 0(zero).<br/>4.If an element is not present in a string,it returns -1.<br/>5.This method is case-sensitive.";
+                document.getElementById("jk2").innerHTML=a;
+            }
+            else if(select=='slice()')
+            {
+                var a="1.This method is used to fetch the part of the string and returns the new string.<br/>2.it required specifying the index number as the start and ending parameter to fetch the part of the string.<br/>3.The index starts from 0(zero).<br/>4.This method also allows us to pass a negative number as an index.<br/>5.It doesn't make any change in the original string.<br/>6.Syntax-string.slice(start,end)";
+                document.getElementById("jk2").innerHTML=a;
+            }
+        };
+    </script>
+    </body>
+</html

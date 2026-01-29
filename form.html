@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body{
+            background-color: #d0d0ff;
+        }
+        .container{
+            height: 400px;
+            width: 400px;
+            border: 2px solid white;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            margin-left: 650px;
+            margin-top: 200px;
+            background-color: #d0d0ff;
+            border-radius: 20px;
+        }
+        h2{
+            position: relative;
+            margin-top: -15px;
+            font-size: 45px;
+            color: white;
+        }
+        .inputs{
+            
+            border: none;
+            height: 25px;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            padding-left: 10px;
+            border: 2px solid white;
+            border-radius: 8px;
+        }
+        #button{
+            color: white;
+            background-color:#712cf9;
+            height: 55px;
+            width: 200px;
+            border: none;
+            border-radius: 12px;
+            margin-top: 30px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            transition: 0.6s;
+            font-size: 20px;
+            cursor: pointer;
+            border: 2px solid white;
+        }
+        #button:hover{
+            background-color:#712cf9;
+            font-size: 25px;
+        }
+        label{
+            font-weight: bolder;
+            color: white;
+            font-size: 23px;
+        }
+    </style>
+<body>
+    <div class="container">
+    <center>
+    <h2>Login</h2>
+    <form action="verify.php" method="post">
+        <label for="email">Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="email" name="email" id="username" class="inputs" required><br><br>
+        <label for="password">password &nbsp;&nbsp;</label>
+        <input type="password" name="password" id="password" class="inputs" required><br><br>
+        <input type="submit" value="Login" name="submit" id="button">
+    </form>
+    </center>
+    </div>
+</body>
+</html>

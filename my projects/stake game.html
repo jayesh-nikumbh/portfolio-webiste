@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stake game</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            background-color:#001928;
+        }
+        .container{
+            margin-top: 20px;
+            background-color:#001928;
+            height: 400px;
+            width: 420px;
+            
+        }
+        .row1,.row2,.row3,.row4,.row5{
+            margin: 10px;
+            display: flex;
+            flex-direction: row;
+            width: 400px;
+            gap: 8px;
+        }
+        .div
+        {
+            padding: 8px;
+            height: 60px;
+            width: 70px;
+            border-radius: 5px;
+            background-color: rgb(59, 75, 92);
+        }
+        .div:hover
+        {
+            background-color: rgb(143, 149, 156);
+            transition: 0.1s; 
+            padding: 8px;  
+        }
+        #show{
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        button
+        {    
+            position: relative;   
+            padding: 12px 20px;
+            font-size: 10px;
+            border-radius: 20px;
+            background: rgb(0, 221, 0);
+            color: white;
+            cursor: pointer;
+            font-style: bolder;
+            font-weight: 500px;
+            font-size: 20px;
+            margin-top: 50px;
+        }
+        p{
+            margin-top: 70px;
+            color: white;
+            text-align: center;
+            font-size: 20px;
+        }
+        #title{
+            margin-left: 100px;
+            display: grid;
+            justify-content: center;
+            align-items:center;
+        }
+        video{
+            color: white;
+            size: 10px;
+            margin-left: 149px;
+            margin-top: 50px;
+            inline-size: 30%;
+            border: white 1px solid;border-radius: 5px;
+             
+        }
+    </style>
+</head>
+<body>
+    <video src="logo.mp4" autoplay loop muted></video>
+    <p>your score  &nbsp; <span id="show">0</span></p>
+    
+    <div class="container">
+        <div class="row1">
+            <div id="div1" onclick="test('div1')" class="div" >&nbsp;</div>
+            <div id="div2" onclick="test('div2')" class="div" >&nbsp;</div>  
+            <div id="div3" onclick="test('div3')" class="div" >&nbsp;</div>
+            <div id="div4" onclick="test('div4')" class="div" >&nbsp;</div>
+            <div id="div5" onclick="test('div5')" class="div" >&nbsp;</div>
+        </div>
+        <div class="row2">
+            <div id="div6" onclick="test('div6')" class="div" >&nbsp;</div>
+            <div id="div7" onclick="test('div7')" class="div" >&nbsp;</div>
+            <div id="div8" onclick="test('div8')" class="div" >&nbsp;</div>
+            <div id="div9" onclick="test('div9')" class="div" >&nbsp;</div>
+            <div id="div10" onclick="test('div10')" class="div">&nbsp;</div>
+        </div>
+        <div class="row3">
+            <div id="div11" onclick="test('div11')" class="div" >&nbsp;</div>
+            <div id="div12" onclick="test('div12')" class="div" >&nbsp;</div>
+            <div id="div13" onclick="test('div13')" class="div" >&nbsp;</div>
+            <div id="div14" onclick="test('div14')" class="div" >&nbsp;</div>
+            <div id="div15" onclick="test('div15')" class="div" >&nbsp;</div>
+        </div>
+        <div class="row4">
+            <div id="div16" onclick="test('div16')" class="div" >&nbsp;</div>
+            <div id="div17" onclick="test('div17')" class="div" >&nbsp;</div>
+            <div id="div18" onclick="test('div18')" class="div" >&nbsp;</div>
+            <div id="div19" onclick="test('div19')" class="div" >&nbsp;</div>
+            <div id="div20" onclick="test('div20')" class="div" >&nbsp;</div>
+        </div>
+        <div class="row5">
+            <div id="div21" onclick="test('div21')" class="div" >&nbsp;</div>
+            <div id="div22" onclick="test('div22')" class="div" >&nbsp;</div>
+            <div id="div23" onclick="test('div23')" class="div">&nbsp;</div>
+            <div id="div24" onclick="test('div24')" class="div" >&nbsp;</div>
+            <div id="div25" onclick="test('div25')" class="div">&nbsp;</div>
+        </div>
+    </div>
+    <button onclick="reset()">Play Again</button>
+    <script>
+        var show=document.getElementById("show");
+        var i=0,j=0;
+        var divs=document.querySelectorAll('.div');
+        var random = Math.floor(Math.random()*(24));
+        console.log(random);
+        var uniquediv=divs[random];
+
+        uniquediv.addEventListener('click',function(){
+            uniquediv.style.background="url('bomb.png')";
+            uniquediv.style.backgroundRepeat="no-repeat";
+            uniquediv.style.backgroundSize="cover";
+            alert(`you lost your score is : ${i-1}`);
+            jay=null;
+            j++;
+            if(uniquediv="isClicked")
+            {
+                --i;
+                show.innerText=i;
+                for(var k=0;k<=24;k++)
+                {
+                    if(divs[k]!==divs[random])
+                    {
+                        i--;
+                        divs[k].click();                        
+                    }
+                }
+            }
+        });
+        
+        function test(str)
+        {
+            var first=document.getElementById(str);
+                first.style.background="url('diamond.png')";
+                first.style.backgroundRepeat="no-repeat";
+                first.style.backgroundSize="cover";
+                jay('dy.mp3');
+                i++;
+                show.innerText=i;
+            if(uniquediv!=="isClicked" && i==24 && j==0)
+            {
+                alert('you win....!');
+            }
+        }
+        function reset()
+        {
+            
+            location.href="http://localhost/website/my%20projects/stake%20game.html";
+        }
+        function jay(url)
+        {
+            new Audio(url).play();
+        }
+    </script>
+</body>
+</html>

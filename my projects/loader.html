@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <style> 
+            .loader{
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                border: 20px solid red;
+                border-top: 20px solid white;
+                animation: loadAnimate 1s ease-in-out 0s infinite normal;
+                position: absolute;
+                left:600px;
+                top: 35%;
+            }
+            @keyframes loadAnimate {
+                from{
+                    transform: rotate(0deg);    
+                }
+                to{
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="loader">
+        </div>
+    </body>
+</html>

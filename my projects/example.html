@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stake game</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            background-color:#001928;
+        }
+        .container{
+            margin-top: 20px;
+            background-color:#001928;
+            height: 400px;
+            width: 420px;
+            
+        }
+        .row1,.row2,.row3,.row4,.row5{
+            margin: 10px;
+            display: flex;
+            flex-direction: row;
+            width: 400px;
+            gap: 8px;
+        }
+        .div
+        {
+            padding: 8px;
+            height: 60px;
+            width: 70px;
+            border-radius: 5px;
+            background-color: rgb(59, 75, 92);
+        }
+        .div:hover
+        {
+            background-color: rgb(143, 149, 156);
+            transition: 0.1s; 
+            padding: 8px;  
+        }
+        #show{
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        button
+        {    
+            position: relative;   
+            padding: 12px 20px;
+            font-size: 10px;
+            border-radius: 20px;
+            background: rgb(0, 221, 0);
+            color: white;
+            cursor: pointer;
+            font-style: bolder;
+            font-weight: 500px;
+            font-size: 20px;
+            margin-top: 50px;
+        }
+        p{
+            margin-top: 70px;
+            color: white;
+            text-align: center;
+            font-size: 20px;
+        }
+        #title{
+            margin-left: 100px;
+            display: grid;
+            justify-content: center;
+            align-items:center;
+        }
+        img{
+            color: white;
+            size: 10px;
+            margin-left: 149px;
+            margin-top: 50px;
+            inline-size: 30%;
+        }
+    </style>
+</head>
+<body>
+    <img src="img.png">
+    <p>your score  &nbsp; <span id="show">0</span></p>
+    
+    <div class="container">
+        <div class="row1">
+            <div id="div1" onclick="test('div1','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div2" onclick="test('div2','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div3" onclick="test('div3','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div4" onclick="test('div4','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div5" onclick="test('div5','dy.mp3')" class="div" >&nbsp;</div>
+        </div>
+        <div class="row2">
+            <div id="div6" onclick="test('div6','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div7" onclick="test('div7','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div8" onclick="test('div8','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div9" onclick="test('div9','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div10" onclick="test('div10','dy.mp3')" class="div">&nbsp;</div>
+        </div>
+        <div class="row3">
+            <div id="div11" onclick="test('div11','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div12" onclick="test('div12','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div13" onclick="test('div13','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div14" onclick="test('div14','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div15" onclick="test('div15','dy.mp3')" class="div" >&nbsp;</div>
+        </div>
+        <div class="row4">
+            <div id="div16" onclick="test('div16','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div17" onclick="test('div17','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div18" onclick="test('div18','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div19" onclick="test('div19','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div20" onclick="test('div20','dy.mp3')" class="div" >&nbsp;</div>
+        </div>
+        <div class="row5">
+            <div id="div21" onclick="test('div21','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div22" onclick="test('div22','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div23" onclick="test('div23','dy.mp3')" class="div">&nbsp;</div>
+            <div id="div24" onclick="test('div24','dy.mp3')" class="div" >&nbsp;</div>
+            <div id="div25" onclick="test('div25','dy.mp3')" class="div">&nbsp;</div>
+        </div>
+    </div>
+    <button onclick="reset()+mouse('mouse.mp3')">Play Again</button>
+    <script>
+        var show=document.getElementById("show");
+        const clickedflags={};
+        var i=0,j=0;
+        var show=document.getElementById("show");
+        var divs=document.querySelectorAll('.div');
+        var random = Math.floor(Math.random()*(24));
+        console.log(random);
+        var uniquediv=divs[random];
+
+        divs.forEach((div,index)=>{
+            clickedflags['div'+index]=false;
+            console.log(clickedflags);
+            div.addEventListener('click',function(){
+                if(!clickedflags['div'+index])
+                {
+                    i++;
+                    show.innerText=i;
+                    clicked=true;
+                    console.log(i);
+                    clickedflags['div'+index]=true;
+                    
+                    if(i==24)
+                    {
+                        i--;
+                        wingame('win.mp3');
+                        uniquediv.click();
+                    }
+                }
+            })
+        })
+        
+        uniquediv.addEventListener('click',function(){
+            uniquediv.style.background="url('bomb.png')";
+            uniquediv.style.backgroundRepeat="no-repeat";
+            uniquediv.style.backgroundSize="cover";
+            
+            j++;
+            if(uniquediv="isClicked")
+            {
+                
+                show.innerText=i;
+                bgm('lose.mp3');
+                for(var k=0;k<=24;k++)
+                {
+                    if(divs[k]!==divs[random])
+                    {
+                        
+                        divs[k].click();
+                    }
+                }
+            }
+            
+        });
+        
+        function test(str,url)
+        {
+            var first=document.getElementById(str);
+            first.style.background="url('diamond.png')";
+            first.style.backgroundRepeat="no-repeat";
+            first.style.backgroundSize="cover";
+            new Audio(url).play();
+            
+            
+        }
+        function reset()
+        {
+            location.href="file:///C:/Users/jniku/OneDrive/Desktop/my%20projects/stake%20game.html";
+        }
+        function mouse(url1){
+            new Audio(url1).play();
+        }
+        function bgm(url2)
+        {
+            new Audio(url2).play();
+        }
+        function wingame(url3)
+        {
+            new Audio(url3).play();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        #container
+        {
+           
+            height: 350px;
+            width: 1600px;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            resize: horizontal;
+            border: none;
+        }
+        div{
+            margin-top: 40px;
+            height: 250px;
+            width: 400px;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+        button{
+            margin-top: 20px;
+            margin-left: 640px;
+            width: 200px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 25px;
+            color: black;
+            border: 2px;
+            font-size: 20px;
+            cursor: pointer;
+            font-weight: 6000;
+            border-radius: 20px;
+            border:0.5px solid black;
+        }
+        button:hover{
+            background: rgb(0, 192, 226);
+            color: white;
+            transition: 0.5s;
+        }
+        #show{
+            height: 300px;
+            width: 400px;
+            margin-left: 560px;
+            border: 1px solid black;
+            font-size: 20px;
+            overflow: scroll;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="item1" onclick="test('burger',99)"></div>
+        <div id="item2" onclick="test('pizza',199)"></div>
+        <div id="item3" onclick="test('french frize',299)"></div>
+        <div id="item4" onclick="test('coca-cola',50)"></div>
+        <div id="item5" onclick="test('sting',20)"></div>
+        
+    </div>
+    <div id="show"><p>&nbsp;No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dish&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price</p></div>
+    <button onclick="start()">Bill</button><br>
+    <form name="calculator">
+    </form>
+    <script>
+        let box=document.getElementById('show');
+        let ammount=0;
+        var c=0;
+        function test(a,b)
+        {
+            c++;
+            box.innerHTML+='&nbsp;'+c+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+            box.innerHTML+=a;
+            box.innerHTML+='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+b+'<br>';
+
+            ammount+=b;
+        }
+        function start()
+        {
+            
+            alert('you buyed '+c+' items you have to pay '+ammount+' rupees');
+        }
+    </script>
+</body>
+</html>

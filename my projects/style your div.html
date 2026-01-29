@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            h1{
+                text-align: center;
+            }
+            #jay{
+                height: 100px;
+                width: 100px;
+                background-color: yellow;
+                border: 2px solid red;
+                margin: 200px 200px 200px 550px;
+                color: black;
+                text-align: center;
+                padding: 20px;
+                overflow: hidden;
+            }
+            input[type='range']{
+                cursor: pointer;
+            }
+            #box{
+                height: 200px;
+                width: 1600px;
+                background-color: chartreuse;
+                margin: 20px;
+                padding: 0;
+                display: grid;
+                place-items: center;
+            }
+        </style>
+    </head>
+    <body> 
+        <h1>Customized the Div</h1>
+        <div id="box">
+            <div id="container">      
+                Height:<input type="range" id="height" min="100" max="500" value="100" oninput="test()">
+                Width:<input type="range" id="width" min="100" max="500" value="100" oninput="test()">
+            </div>
+            
+            <div id="color">
+                select background-color:
+                <input type="range" id="red1" value="255" min="0" max="255">
+                <input type="range" id="green1" value="255" min="0" max="255">
+                <input type="range" id="blue3" value="255" min="0" max="255">
+
+                select border-color:
+                <input type="range" id="red2" value="255" min="0" max="255">
+                <input type="range" id="green2" value="255" min="0" max="255">
+                <input type="range" id="blue3" value="255" min="0" max="255">
+
+                select border-width:
+                <input type="range" id="bwidth" value="10" min="0" max="10"><br>
+            </div>
+            <div>
+                Select the border radius:
+                <input type="range" id="radius" value="0" min="0" max="50%" oninput="radiuschange()">
+                Enter the text:
+                <input type="text" id="input" oninput="textwrite()">
+                Text-color:
+                <input type="range"id="r1" value="255" min="0" max="255">
+                <input type="range"id="g1" value="255" min="0" max="255">
+                <input type="range"id="b1" value="255" min="0" max="255">
+            </div>
+            <div>
+                Div text-size<input type="range" id="textrange" value="10" min="10" max="100" oninput="text()">
+                formatinting:
+                <select id="select">
+                    <option value="bold">bold</option>
+                    <option value="italic">italic</option>
+                    <option value="underline">underline</option>
+                    <option value="none">none</option>
+                </select>
+                <button onclick="selection()">click</button>
+            </div>
+        </div>
+        <br>
+            <div id="jay">
+            
+            </div>
+        <script>
+            let box=document.getElementById("jay");
+            function test(){
+                let height1=document.getElementById("height").value;
+                let width1=document.getElementById("width").value;
+                box.style.height = height1;
+                box.style.width = width1;
+
+            };
+
+            function colorchange(){
+                let a=document.getElementById("red1").value;
+                let b=document.getElementById("green1").value;
+                let c=document.getElementById("blue3").value;
+
+                let d=document.getElementById("red2").value;
+                let e=document.getElementById("green2").value;
+                let f=document.getElementById("blue3").value;
+
+                let g=document.getElementById("bwidth").value;
+
+                let color="rgb("+a+","+b+","+c+")";
+                let clr="rgb("+d+","+e+","+f+")";
+
+                box.style.backgroundColor=color;
+                box.style.borderColor=clr;
+                box.style.borderWidth=g;
+            };
+            function radiuschange(){
+                let radius=document.getElementById("radius").value;
+                box.style.borderRadius=radius+"px";
+            };
+            function textwrite(){
+                let a=document.getElementById("input").value;
+                let b=document.getElementById("jay");
+                b.textContent=a;
+
+                let red=document.getElementById("r1").value;
+                let green=document.getElementById("g1").value;
+                let blue=document.getElementById("b1").value;
+
+                let change="rgb("+red+","+green+","+blue+")";
+
+                box.style.color = change;
+            };
+            function text(){
+                let range=document.getElementById("textrange").value;
+                box.style.fontSize=range;
+            };
+            function selection(){
+                let select=document.getElementById("select").value;
+                if(select=="bold"){
+                    box.style.fontWeight="bold";
+                }
+                else if(select=="italic"){
+                    box.style.fontStyle="italic";
+                }
+                else if(select=="underline"){
+                    box.style.textDecoration="underline";
+                }
+                else if(select=="none"){
+                    box.style.fontWeight="none";
+                    box.style.fontStyle="none";
+                    box.style.textDecoration="none";
+                }
+            };
+
+            function go(){
+                let a="<h1>";
+                let heading=document.getElementById("heading").value;
+                if(heading=="h1"){
+                    box.style.font="<h1>";
+                }
+            };
+            document.getElementById("color").addEventListener('input',colorchange);
+            document.getElementById("clr").addEventListener('input',colorchange);
+            document.getElementById("seven").addEventListener('input',colorchange);
+            document.getElementById("change").addEventListener('input',textwrite);
+        </script>
+    </body>
+</html>

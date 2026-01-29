@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: grid;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            margin-top: 130px;
+            border: 3px solid white;
+            height: 350px;
+            width: 500px;
+            background-color: rgb(0, 255, 255);
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        }
+        h1{
+            margin-left: 110px;
+            margin-bottom: -10px;
+            color: rgb(255, 0, 238);
+            text-shadow: 0 0 5px #03e9f4,0 0 15px #03e9f4,
+            0 0 25px #03e9f4,0 0 100px #03e9f4;
+        }
+        h3{
+            color: black;
+            margin-bottom: 5px;
+        }
+        #form{
+            height: 100px;
+            width: 300px;
+            margin-left: 110px;
+            margin-top: 20px;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        #to{
+            size: 100px;
+            margin-left: 90px;
+            color: orange;
+        }
+        button{
+            margin-left: 8PX;
+            margin-top: 10px;
+            padding: 8px 20PX;
+            border-radius: 20px;
+            color: black;
+            cursor: pointer; 
+            font-size: 12px;
+            text-decoration: solid;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+            gap: 2PX;
+        }
+        button:hover{
+            background: orange;
+            transition: 0.5s;
+        }
+        button:hover{
+            color: white;
+        }
+        #show{
+            margin-top: 20px;
+            color: black;
+            height: 20px;
+            width: 200px;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        input{
+            border-radius: 10px;
+            margin-bottom: 5px;
+            padding: 3px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        input:hover{
+            border-color: coral;
+            transition: 0.5s;
+        }
+        select{
+            padding: 5px;
+            border-radius: 10px;
+            size: 20px;
+            border: 2px solid black;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Number system Converter</h1>
+        <div id="form">
+            <h3>Enter a Number</h3>
+            <input type="text" id="n">
+            <select id="cur1">
+                <option value="Decimal">Decimal</option>
+                <option value="Binary">Binary</option>
+                <option value="Octal">Octal</option>
+                <option value="Hexadecimal">Hexadecimal</option>
+            </select>
+                <span id="to">⇅</span>
+            <select id="cur2">
+                <option value="Binary">Binary</option>
+                <option value="Decimal">Decimal</option>
+                <option value="Octal">Octal</option>
+                <option value="Hexadecimal">Hexadecimal</option>
+            </select>
+            <div>
+                <button onclick="test()">Convert</button>
+                <button onclick="call()">reset</button>
+                <div id="show"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    function test(){
+        let n =document.getElementById("n").value;
+        let cur1 = document.getElementById("cur1").value;
+        let cur2 = document.getElementById("cur2").value;
+        let show = document.getElementById("show");
+        if(document.getElementById("n").value=="")
+        {
+            alert("please enter a number");
+        }
+        else
+        {
+            if(cur1 == cur2){
+                alert("please select the next one");
+            }
+            else if(cur1 == 'Decimal' && cur2 == 'Binary')
+            {
+                let a=Array;
+                var i=0,rem;
+                while(n>0)
+                {
+                    rem=n%2;
+                    n=parseInt(n/2);
+                    a[i]=parseInt(rem);
+                    i++;
+                }
+                for(var j=i-1;j>=0;j--)
+                {
+                    show.innerHTML+=a[j];
+                }
+            }
+            else if(cur1 == 'Decimal' && cur2 == 'Octal')
+            {
+                let a=Array;
+                var i=0,rem;
+                while(n>0)
+                {
+                    rem=n%8;
+                    n=parseInt(n/8);
+                    a[i]=parseInt(rem);
+                    i++;
+                }
+                for(var j=i-1;j>=0;j--)
+                {
+                    show.innerHTML+=a[j];
+                }
+            }
+            else if(cur1 == 'Decimal' && cur2 == 'Hexadecimal')
+            {
+                let a=parseInt(n);
+                show.innerHTML=a.toString(16).toUpperCase();
+            }
+            else if(cur1 == 'Binary' && cur2 == 'Decimal')
+            {
+                var i=0,decimal=0;
+                while(n>0)
+                {
+                    var rem=parseInt(n%10);
+                    decimal+=rem*Math.pow(2,i)
+                    n=parseInt(n/10);
+                    i++;
+                }
+                show.innerHTML=decimal;
+            }
+            else if(cur1 == 'Binary' && cur2 == 'Octal')
+            {
+                let a=n;
+                show.innerHTML=parseInt(a,2).toString(8);
+            }
+            else if(cur1 == 'Binary' && cur2 == 'Hexadecimal')
+            {
+                let a=n;
+                show.innerHTML=parseInt(a,2).toString(16).toUpperCase();
+            }
+            else if(cur1 == 'Octal' && cur2 == 'Decimal')
+            {
+                var i=0,decimal=0;
+                while(n>0)
+                {
+                    var rem=parseInt(n%10);
+                    decimal+=rem*Math.pow(8,i)
+                    n=parseInt(n/10);
+                    i++;
+                }
+                show.innerHTML=decimal;
+            }
+            else if(cur1 == 'Octal' && cur2 == 'Binary')
+            {
+                var i=0,octal=0;
+                while(n>0)
+                {
+                    var rem=parseInt(n%10);
+                    octal+=rem*Math.pow(8,i)
+                    n=parseInt(n/10);
+                    i++;
+                }
+                
+                let a=Array;
+                var i=0,rem;
+                while(octal>0)
+                {
+                    rem=octal%2;
+                    octal=parseInt(octal/2);
+                    a[i]=parseInt(rem);
+                    i++;
+                }
+                for(var j=i-1;j>=0;j--)
+                {
+                    show.innerHTML+=a[j];
+                }
+            }
+            else if(cur1 == 'Octal' && cur2 == 'Hexadecimal')
+            {
+                let a=n;
+                show.innerHTML=parseInt(a,8).toString(16).toUpperCase();
+            }
+            else if(cur1 == 'Hexadecimal' && cur2=='Decimal')
+            {
+                let decimal=parseInt(n, 16);
+                show.innerHTML=decimal;
+            }
+            else if(cur1 == 'Hexadecimal' && cur2=='Binary')
+            {
+                let decimal=parseInt(n, 16);
+
+                let a=Array;
+                var i=0,rem;
+                while(decimal>0)
+                {
+                    rem=decimal%2;
+                    decimal=parseInt(decimal/2);
+                    a[i]=parseInt(rem);
+                    i++;
+                }
+                for(var j=i-1;j>=0;j--)
+                {
+                    show.innerHTML+=a[j];
+                }
+            }
+            else if(cur1 == 'Hexadecimal' && cur2 == 'Octal')
+            {
+                let dec=parseInt(n, 16);
+
+                let a=Array;
+                var i=0,rem;
+                while(dec>0)
+                {
+                    rem=dec%8;
+                    dec=parseInt(dec/8);
+                    a[i]=parseInt(rem);
+                    i++;
+                }
+                for(var j=i-1;j>=0;j--)
+                {
+                    show.innerHTML+=a[j];
+                }
+            }
+        }
+    };
+    function call(){
+        n.value=null;
+        show.innerHTML=null;
+    }
+</script>
+</html>

@@ -1,0 +1,227 @@
+<html>
+    <head>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+                display: grid;
+                place-items: center;
+            }
+            #box1{
+                height: 200px;
+                width: 700px;
+                background-color: darkturquoise;
+                text-align: center;
+                border: 4px solid yellow;
+                border-radius: 15px;
+            }
+            #box2{
+                height: 200px;
+                width: 700px;
+                background-color: darkturquoise;
+                text-align: center;
+                border: 4px solid yellow;
+                border-radius: 15px;
+            }
+            #box3{
+                height: 100px;
+                width: 700px;
+                background-color:darkmagenta;
+                text-align: center;
+                border: 4px solid yellow;
+                border-radius: 15px;
+                color: white;
+                font-size: 20px;
+                font-style: bold;
+                display: grid;
+                place-items: center;
+            }
+            input{
+                padding: 5px;
+                background-color: fuchsia;
+                text-size-adjust: 10px;
+                color: white;
+                border: 4px solid yellow;
+                border-radius: 10px;
+                font-size: 20px;
+                font-style: bold;
+            }
+            button{
+                width: 80px;
+                padding: 5px;
+                border-radius: 10px;
+                background-color:magenta;
+                color: white;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                border: 4px solid yellow;
+                border-radius: 15px;
+                font-weight: bold;
+            }
+            select{
+                padding: 5px;
+                background-color: magenta;
+                color: white;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                border: 4px solid yellow;
+                border-radius: 10px;
+                font-weight: bold;
+            }
+            button:hover{
+                background-color: chartreuse;
+                border-color: crimson;
+            }
+        </style>
+        <script>
+            function test(){
+                var select=document.getElementById("slt").value;
+                if(select=='palindrom')
+                {
+                    var n=parseInt(document.getElementById("num").value);
+                    var rem=0,rev=0,c;
+                    c=n;
+                    while(n>0)
+                    {
+                        rem=n%10;
+                        rev=rev*10+rem;
+                        n=parseInt(n/10);
+                    }
+                    if(c==rev)
+                    {
+                        document.getElementById("box3").innerHTML="Palidrom number";
+                    }
+                    else
+                    {
+                        document.getElementById("box3").innerHTML="Not a Palidrom number";
+                    }
+                }
+                else if(select=='armstrong')
+                {
+                    var n=parseInt(document.getElementById("num").value);
+                    var r=0,arm=0,c;
+                    c=n;
+                   while(n>0)
+                    {
+                        r=n%10;
+                        arm=r*r*r+arm;
+                        n=parseInt(n/10);
+                    }
+                    if(c==arm)
+                    {
+                        document.getElementById("box3").innerHTML="Armstrong number";
+                    }
+                    else
+                    {
+                        document.getElementById("box3").innerHTML="Not a Armstrong number";
+                    }
+                }
+                else if(select=='prime')
+                {
+                    var n=parseInt(document.getElementById("num").value);
+                    var mrf=0;
+                    for(var i=1;i<=n;i++)
+                    {
+                        if(n%i==0)
+                        {
+                            mrf++;
+                        }
+                    }
+                    if(mrf==2)
+                    {
+                        document.getElementById("box3").innerHTML="Prime number";
+                    }
+                    else
+                    {
+                        document.getElementById("box3").innerHTML="Not a prime number";
+                    }
+                }
+                else if(select=='odd or even')
+                {
+                    var n=parseInt(document.getElementById("num").value);
+                    if(n%2==0)
+                    {
+                        document.getElementById("box3").innerHTML="Even number";
+                    }
+                    else
+                    {
+                        document.getElementById("box3").innerHTML="Odd number";
+                    }
+                }
+            };
+
+
+            function test2(){
+                var select2=document.getElementById("slt2").value;
+
+                if(select2=='factorial')
+                {
+                    var n=parseInt(document.getElementById("num2").value);
+                    var fact=1;
+                    for(var i=1;i<=n;i++)
+                    {
+                        fact=fact*i;
+                    }
+                    document.getElementById("box3").innerHTML="Factorial of given number="+fact;
+                }
+                else if(select2=='fibonacci')
+                {
+                    var n=parseInt(document.getElementById("num2").value);
+                    var a=0,b=1,c;
+                    document.getElementById("box3").innerHTML="";
+                    document.getElementById("box3").innerHTML=a+"&nbsp;&nbsp;";
+                    document.getElementById("box3").innerHTML=document.getElementById("box3").innerHTML + b+"&nbsp;&nbsp;";
+                    for(var i=0;i<=n;i++)
+                    {
+                        c=a+b;
+                        document.getElementById("box3").innerHTML= document.getElementById("box3").innerHTML + c+"&nbsp;&nbsp;";
+                        a=b;
+                        b=c;
+                    }
+                }
+                else if(select2=='sum of digit')
+                {
+                    var n=parseInt(document.getElementById("num2").value);
+                    var sum=0;
+                    while(n>0)
+                    {
+                        sum=sum+(n%10);
+                        n=parseInt(n/10);
+                    }
+                    document.getElementById("box3").innerHTML="sum of given digits are:"+sum;
+                }
+                else if(select2=='sum of numbers')
+                {
+                    var n=parseInt(document.getElementById("num2").value);
+                    var sum=0;
+                    for(var i=0;i<=n;i++)
+                    {
+                        sum=sum+i;
+                    }
+                    document.getElementById("box3").innerHTML="sum of given numbes are:"+sum;
+                }
+            };        
+        </script>
+    </head>
+    <body>
+    <div id="box1">
+        <h1>Enter the number you want to check:</h1><input type="number" id="num">
+        <select id="slt">
+            <option value="palindrom">pailndrom</option>
+            <option value="armstrong">armstrong</option>
+            <option value="prime">prime</option>
+            <option value="odd or even">odd or even</option>
+        </select>
+        <button type="button" onclick="test()">show</button>
+    </div>
+    <div id="box3"></div>
+    <div id="box2">
+        <h1>Enter the number you want to print:</h1><input type="number" id="num2">
+        <select id="slt2">
+            <option value="factorial">factorial</option>
+            <option value="fibonacci">fibonacci</option>
+            <option value="sum of digit">sum of digit</option>
+            <option value="sum of numbers">sum of numbers</option>
+        </select>
+        <button type="button" onclick="test2()">show</button>
+    </div>
+    </body>
+</html>

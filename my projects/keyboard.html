@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            display: grid;
+            place-items: center;
+            align-items: center;
+            
+        }
+        .container{
+            margin-top: 70px;
+            height: 320px;
+            width: 910px;
+            
+        }
+        button{
+            padding: 20px;
+            font-size: 12px;
+            gap: 10px;
+            margin: .2rem;
+            color: white;
+            background-color: rgb(0, 182, 192);
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            border-radius: .5rem;
+            text-decoration:solid;
+        }
+        #show{
+            margin-top: 100px;
+            height: 200px;
+            width: 1400px;
+            border: 1px solid black;
+            font-size: 40px;
+            overflow: hidden;
+            overflow: scroll;
+            
+        }
+        #space{
+            width: 420px;
+            font-size: 12px;
+            border-radius: .5rem;
+            margin: .3rem;
+        }
+        #onoff{
+            
+            padding: 20px;
+            font-size: 12px;
+            gap: 10px;
+            margin: .2rem;
+            color: white;
+            background-color: rgb(0, 182, 192);
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            border-radius: .5rem;
+            text-decoration:solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="show">
+        
+    </div>
+    <div class="container">
+        <div class="row1">
+            <button onclick="test('~')">&nbsp;~&nbsp;&nbsp;</button>
+            <button onclick="test('1')">1</button>
+            <button onclick="test('2')">2</button>
+            <button onclick="test('3')">3</button>
+            <button onclick="test('4')">4</button>
+            <button onclick="test('5')">5</button>
+            <button onclick="test('6')">6</button>
+            <button onclick="test('7')">7</button>
+            <button onclick="test('8')">8</button>
+            <button onclick="test('9')">9</button>
+            <button onclick="test('0')">0</button>
+            <button onclick="test('-')">-</button>
+            <button onclick="test('+')">+</button>
+            <button onclick="test('=')">=</button>
+            <button onclick="test('/')">/</button>
+        </div>
+        <div class="row2">
+            <button onclick="test('  ')">Tab</button>
+            <button onclick="test('q')">Q</button>
+            <button onclick="test('w')">W</button>
+            <button onclick="test('e')">E</button>
+            <button onclick="test('r')">R</button>
+            <button onclick="test('t')">T</button>
+            <button onclick="test('y')">Y</button>
+            <button onclick="test('u')">U</button>
+            <button onclick="test('i')">I</button>
+            <button onclick="test('o')">O</button>
+            <button onclick="test('p')">P</button>
+            <button onclick="test('[')">[</button>
+            <button onclick="test(']')">]</button>
+            <button onclick="del()"><- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        <div class="row3">
+            <button id="onoff" value="off" onclick="caps()">CAPS</button>
+            <button onclick="test('a')">A</button>
+            <button onclick="test('s')">S</button>
+            <button onclick="test('d')">D</button>
+            <button onclick="test('f')">F</button>
+            <button onclick="test('g')">G</button>
+            <button onclick="test('h')">H</button>
+            <button onclick="test('j')">J</button>
+            <button onclick="test('k')">K</button>
+            <button onclick="test('l')">L</button>
+            <button onclick="test('{')">{</button>
+            <button onclick="test('}')">}</button>
+            <button onclick="test('(')">(</button>
+            <button onclick="test('<br>')">&nbsp;&nbsp;Enter&nbsp;&nbsp;&nbsp;</button>
+        </div>
+        <div class="row4">
+            <button onclick="test('shft')">&nbsp;Shft&nbsp;</button>
+            <button onclick="test('€')">€</button>
+            <button onclick="test('z')">Z</button>
+            <button onclick="test('x')">X</button>
+            <button onclick="test('c')">C</button>
+            <button onclick="test('v')">V</button>
+            <button onclick="test('b')">B</button>
+            <button onclick="test('n')">N</button>
+            <button onclick="test('m')">M</button>
+            <button onclick="test(',')">,</button>
+            <button onclick="test('.')">.</button>
+            <button onclick="test('*')">*</button>
+            <button onclick="test(')')">)</button>
+            <button onclick="test('shft')">&nbsp;&nbsp;&nbsp;&nbsp;Shft&nbsp; &nbsp;&nbsp;&nbsp;</button>
+        </div>
+        <div class="row5">
+            <button onclick="test('ctrl')">Ctrl</button>
+            <button onclick="test('windows')">windows</button>
+            <button onclick="test('alt')">Alt</button>
+            <button onclick="test(' ')" id="space">&nbsp;</button>
+            <button onclick="test('alt')">Alt Gr</button>
+            <button onclick="test('?')">&nbsp;&nbsp;?</button>
+            <button onclick="test('ctrl')">&nbsp;&nbsp;Ctrl&nbsp;&nbsp;</button>
+        </div>
+    </div>
+    <script>
+        let cap=document.getElementById("onoff");
+        var show=document.getElementById("show");
+        let str=[]
+        function test(string){
+            function caps()
+            {
+                if(document.getElementById("onoff").value=="off")
+                {
+                    document.getElementById("onoff").value="on"
+                    cap.style.backgroundColor="red";    
+                    string.style.textTransform="uppercase";
+                    str.push(string);
+                    show.innerHTML+=string;
+                }
+                
+                    document.getElementById("onoff").value="off"
+                    cap.style.backgroundColor="rgb(0, 182, 192)";
+                    
+                
+            }   
+            str.push(string);
+            show.innerHTML+=string;
+        }     
+        function del(){
+            str.pop();
+            let str2=str;
+            show.innerHTML=str;
+        }
+        function caps(){  
+            
+            
+        }
+     </script>
+
+</body>
+</html>

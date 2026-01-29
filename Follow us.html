@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #d0d0ff;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            margin-left: 800px;
+            gap: 60px;
+        }
+        .navbar{
+            background-color: #712cf9;
+            padding: 8px;
+            
+        }
+        .nik{
+            margin-top: 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+            font-family:var(--bs-body-font-family);            
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 15px;
+            
+        }
+        .nik:hover{
+            color: #712cf9;
+            background-color: white;
+            transition: 0.5s;
+        }
+        img{
+            height: 100px;
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-left: -800px;
+            border: 5px solid orange;
+            border-radius: 10px;
+        }
+        .container{
+            display: grid;
+            align-items: center;       
+            justify-content: center;
+            border: 2px solid  black;
+            height: 800px;
+            border: 2px solid white;
+        }
+        h2{
+            
+            display: block;
+            font-size: 50px;
+            color: white;
+            margin-top: -100px;
+            margin-left: 500px;
+        }
+        .box{
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            margin-top: -400px;
+        }
+        .logos{
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #712cf9;
+            border-radius: 15px;
+        }
+        i{
+            height: 100px;
+            color: white;
+        }
+        .gh{
+            text-decoration: none;
+            display: grid;
+        }
+        .fa{
+            color: #fff;
+            font-size: 100px;
+            line-height: 2;
+        }
+        span{
+            color: #fff;
+            font-size: 20px;
+            line-height: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <img src="jc.jpeg">
+            <li><a href="homie.html" class="nik" >Home</a></li>
+            <li><a href="projects.html" class="nik">Projects</a></li>
+            <li><a href="contact us.php" class="nik" >Contact us</a></li>
+            <li><a href="login.php" class="nik" >Login</a></li>
+            <li><a href="Follow us.html" class="nik" >Follow us</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <h2>Follow Us</h2>
+        <div class="box">
+            <div class="logos">
+                <a href="https://www.snapchat.com/add/jayeshnikumbh73?share_id=fHf4N-uAVFw&locale=en-US" class="gh">
+                    <i class="fa fa-snapchat"></i><br><br><br>
+                    <span>Follow us on Snapchat</span>
+                </a>
+            </div>
+            <div class="logos">
+                <a href="https://www.instagram.com/jayesh_nikumbh_official_?igsh=MXhvaGozbXBram50ZA==" class="gh">
+                    <i class="fa fa-instagram"></i><br><br><br>
+                    <span>Follow us on Instagram</span>
+                </a>
+            </div>
+            <div class="logos" class="gh">
+                <a href="https://youtube.com/@jayeshnikumbh-p2u?si=Ha5o1UshgDU857h0">
+                    <i class="fa fa-youtube"></i><br><br>
+                    <span>Follow us on You-tube</span>
+                </a>
+            </div>
+            <div class="logos" class="gh">
+                <a href="https://www.linkedin.com/in/jayesh-nikumbh-79a86a291?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+                    <i class="fa fa-linkedin"></i><br><br>
+                    <span>Follow us on Linkedin</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

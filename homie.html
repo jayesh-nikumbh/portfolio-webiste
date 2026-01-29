@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #d0d0ff;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            margin-left: 800px;
+            gap: 60px;
+        }
+        .navbar{
+            background-color: #712cf9;
+            padding: 8px;
+            border-bottom: 2px solid white; 
+        }
+        a{
+            margin-top: 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+            font-family:var(--bs-body-font-family);            ;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 15px;
+            
+        }
+        a:hover{
+            color: #712cf9;
+            background-color: white;
+            transition: 0.5s;
+        }
+        img{
+            height: 100px;
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-left: -800px;
+            border: 5px solid orange;
+            border-radius: 10px;
+        }
+        .box
+        {   
+            align-items: center;
+            height: 300px;
+            width: 500px;
+            border: 1px solid black;
+            position: relative;
+            margin-top: 200px;
+            margin-left: 200px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #712cf9;
+            background-color: white;
+        }
+        #text{
+            margin: 20px;
+            font-size: 50px;
+            font-weight: bolder;
+        }
+        .post
+        {
+            position: relative;
+            margin-top: -480px;
+            height: 620px;
+            width: 550px;
+            border: 1px solid black;    
+            margin-left: 1000px;
+            border-radius: 50%;
+            background-image: url('dj.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            backdrop-filter:unset;
+            box-shadow: 40px 40px 40px 10px rgb(81, 79, 79);
+        }
+        .span{
+            position: relative;
+            margin-top: -15px;
+            margin-left: 20px;
+            margin-bottom: 10px;
+            color: orange;
+            font-size: 50px;
+            font-weight: bolder;
+            border-right: .15rem solid orange;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 6s steps(50,end) infinite forwards;
+        }
+        @keyframes typing {
+            0%{
+                width: 0;
+            }
+            50%
+            {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        
+        <ul>
+            <img src="jc.jpeg">
+            <li><a href="homie.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact us.php">Contact us</a></li>
+            <li><a href="login.php">Login</a></li>
+            <li><a href="Follow us.html">Follow us</a></li>
+        </ul>
+    </div>
+    <div class="box">
+        <p id="text">Hi,I am<br><p class="span">Jayesh Nikumbh.</p></p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam accusamus asperiores voluptatem ut quam, in cum nobis laboriosam eius nemo ex maiores nisi quaerat sed sapiente excepturi perferendis numquam! Tempore? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea ipsa, doloremque nisi recusandae, cum ad, sit nam assumenda earum corrupti laborum autem explicabo magni nihil exercitationem labore accusamus inventore dignissimos?</p>
+    </div>
+    <div class="post">
+
+    </div>
+</body>
+</html>
